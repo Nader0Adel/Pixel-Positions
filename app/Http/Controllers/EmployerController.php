@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employers;
+use App\Models\Employer;
 use Illuminate\Http\Request;
 
-class EmployersController extends Controller
+class EmployerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        dd(123);
     }
 
     /**
@@ -20,7 +20,8 @@ class EmployersController extends Controller
      */
     public function create()
     {
-        //
+        dd(123);
+
     }
 
     /**
@@ -28,21 +29,23 @@ class EmployersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd(123);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Employers $employers)
+    public function show(Employer $employer)
     {
-        //
+        dd(123);
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employers $employers)
+    public function edit(Employer $employer)
     {
         //
     }
@@ -50,7 +53,7 @@ class EmployersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employers $employers)
+    public function update(Request $request, Employer $employer)
     {
         //
     }
@@ -58,7 +61,7 @@ class EmployersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employers $employers)
+    public function destroy(Employer $employer)
     {
         //
     }
