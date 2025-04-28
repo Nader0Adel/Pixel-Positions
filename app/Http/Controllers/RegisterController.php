@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\File;
-use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -41,8 +40,9 @@ class RegisterController extends Controller
         //     'employer' => ['required'],
         //     'logo' => ['required' , File::types(['png' , 'jpg'])]
         // ]);
-        $userAttributes = $request->validated();
-        $employerAttributes = $request->validated();
+        $userAttributes = Arr::only($request->validated(), ['name', 'email', 'password']);
+        $employerAttributes = Arr::only($request->validated(),['employer','logo']);
+    
         $user = User::create($userAttributes);
         $logoPath = $request->logo->store('logos');
         $user->employer()->create([
@@ -55,7 +55,7 @@ class RegisterController extends Controller
 
     /**
      * Display the specified resource.
-     */
+     */         
     public function show(string $id)
     {
         //
